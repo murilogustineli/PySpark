@@ -31,6 +31,28 @@ sc = SparkContext.getOrCreate()
 # create a SQLContext instance to access the SQL query engine built on top of Spark
 sqlContext = SQLContext(spark)
 
+#Inspect SparkContext
+from pyspark import SparkContext
+sc = SparkContext(master = 'local[2]')
+
+sc.version               # Retrieve SparkContext version
+sc.pythonVer             # Retrieve Python version
+sc.master                # Master URL to connect to
+str(sc.sparkHome)        # Path where Spark is installed on worker nodes
+str(sc.sparkUser())      # Retrieve name of the Spark User running SparkContext
+sc.appName               # Return application name
+sc.applicationId         # Retrieve application ID
+sc.defaultParallelism    # Return default level of parallelism
+sc.defaultMinPartitions  # Default minimum number of partitions for RDDs
+
+# Configuration
+from pyspark import SparkConf, SparkContext,
+cong = (SparkConf()
+  .setMaster("local")
+  .setAppName("My app")
+  .set("spark.executor.memory", "1g"))
+sc = SparkContext(conf = conf)
+
 
 
 ############################################################################## 
@@ -38,7 +60,7 @@ sqlContext = SQLContext(spark)
 ##############################################################################
 # set the file_path variable in the beginning of the file
 # or if your Spark application interacts with other applications, parameterize it
-file_path = '/Users/kovid-r/datasets/moviedb/movies_metadata.csv'
+file_path = '/Users/user_name/datasets/moviedb/movies_metadata.csv'
 
 # method 1 for reading a CSV file
 df = spark.read.csv(file_path, header=True)
@@ -216,6 +238,24 @@ df.where(df.budget.isNotNull()).show()
 ############################################################################## 
 # Aggregates
 ##############################################################################
+# Group By
+# DataFrame.groupBy(*cols)
+# Groups the DataFrame using the specified columns, so we can run aggregation on them.
+
+# Examples
+df.groupBy().avg().collect()
+# Output: [Row(avg(age)=3.5)]
+
+sorted(df.groupBy('name').agg({'age': 'mean'}).collect())
+# Output: [Row(name='Alice', avg(age)=2.0), Row(name='Bob', avg(age)=5.0)]
+
+sorted(df.groupBy(df.name).avg().collect())
+# Output: [Row(name='Alice', avg(age)=2.0), Row(name='Bob', avg(age)=5.0)]
+
+sorted(df.groupBy(['name', df.age]).count().collect())
+# Output: [Row(name='Alice', age=2, count=1), Row(name='Bob', age=5, count=1)]
+
+
 # Year wise summary of a selected portion of the dataset
 df.groupBy('year')\
           .agg(F.min('budget').alias('min_budget'),\
@@ -229,6 +269,19 @@ df.groupBy('year')\
 
 # Pivot to convert Year as Column name and Revenue as the value
 df.groupBy().pivot('year').agg(F.max('revenue')).show()
+
+
+
+############################################################################## 
+# Summary
+##############################################################################
+df.max()        # Maximum value of DataFrame elements
+df.min()        # Minimum value of DataFrame elements
+df.mean()       # Mean value of DataFrame elements
+df.stdev()      # Standard deviation of DataFrame elements
+df.variance()   # Compute variance of DataFrame elements
+df.histogram()  # Compute histogram by bins
+df.stats()      # Summary statistics (count, mean, stdev, max & min)
 
 
 
