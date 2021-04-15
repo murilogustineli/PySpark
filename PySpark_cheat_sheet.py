@@ -52,7 +52,7 @@ sc.defaultMinPartitions  # Default minimum number of partitions for RDDs
 # Reading Data
 ##############################################################################
 '''
-We will be using the MovieLens database in some of the examples.
+We will be using the MovieLens dataset in some of the examples.
 Here’s the link to that database. You can go ahead and download it from Kaggle.
 https://www.kaggle.com/rounakbanik/the-movies-dataset
 '''
