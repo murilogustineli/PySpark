@@ -49,7 +49,7 @@ sc.defaultMinPartitions  # Default minimum number of partitions for RDDs
 
 
 ############################################################################## 
-# Reading Data
+# Loading & Reading Data
 ##############################################################################
 '''
 We will be using the MovieLens dataset in some of the examples.
