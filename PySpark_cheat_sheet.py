@@ -46,14 +46,6 @@ sc.applicationId         # Retrieve application ID
 sc.defaultParallelism    # Return default level of parallelism
 sc.defaultMinPartitions  # Default minimum number of partitions for RDDs
 
-# Configuration
-from pyspark import SparkConf, SparkContext,
-cong = (SparkConf()
-  .setMaster("local")
-  .setAppName("My app")
-  .set("spark.executor.memory", "1g"))
-sc = SparkContext(conf = conf)
-
 
 
 ############################################################################## 
