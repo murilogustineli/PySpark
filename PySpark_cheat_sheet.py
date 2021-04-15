@@ -1,5 +1,7 @@
 # PySpark Cheat Sheet
 # @author: Murilo
+# Cotent written in this file was based on the following article:
+# https://towardsdatascience.com/ultimate-pyspark-cheat-sheet-7d3938d13421
 
 '''
 SparkContext — provides connection to Spark with the ability to create RDDs
