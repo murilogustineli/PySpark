@@ -169,7 +169,6 @@ df.select([col for col in df.columns if column not in drop_columns])
 ############################################################################## 
 # Joins
 ##############################################################################
-
 # Joining two DataFrames
 df1.join(df2, 'title', 'full')
 
