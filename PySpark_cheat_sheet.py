@@ -14,7 +14,6 @@ SparkSession — all-encompassing context which includes coverage for SparkConte
 ############################################################################## 
 # Configuration & Initialization
 ##############################################################################
-
 import pyspark
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
