@@ -34,6 +34,7 @@ sqlContext = SQLContext(spark)
 from pyspark import SparkContext
 sc = SparkContext(master = 'local[2]')
 
+
 # Inspect SparkContext
 sc.version               # Retrieve SparkContext version
 sc.pythonVer             # Retrieve Python version
@@ -58,6 +59,12 @@ sc = SparkContext(conf = conf)
 ############################################################################## 
 # Reading Data
 ##############################################################################
+'''
+We will be using the MovieLens database in some of the examples.
+Here’s the link to that database. You can go ahead and download it from Kaggle.
+https://www.kaggle.com/rounakbanik/the-movies-dataset
+'''
+
 # set the file_path variable in the beginning of the file
 # or if your Spark application interacts with other applications, parameterize it
 file_path = '/Users/user_name/datasets/moviedb/movies_metadata.csv'
