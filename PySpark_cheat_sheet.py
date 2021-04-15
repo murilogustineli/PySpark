@@ -30,10 +30,11 @@ sc = SparkContext.getOrCreate()
 # create a SQLContext instance to access the SQL query engine built on top of Spark
 sqlContext = SQLContext(spark)
 
-#Inspect SparkContext
+# SparkContext
 from pyspark import SparkContext
 sc = SparkContext(master = 'local[2]')
 
+# Inspect SparkContext
 sc.version               # Retrieve SparkContext version
 sc.pythonVer             # Retrieve Python version
 sc.master                # Master URL to connect to
