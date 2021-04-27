@@ -1,6 +1,6 @@
 # PySpark Cheat Sheet
 # @author: Murilo
-# Cotent written in this file was based on the following article:
+# Cotent written in this file was based on the following articles:
 # https://towardsdatascience.com/ultimate-pyspark-cheat-sheet-7d3938d13421
 # https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_Cheat_Sheet_Python.pdf
 
