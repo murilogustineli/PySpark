@@ -15,8 +15,8 @@ SparkSession — all-encompassing context which includes coverage for SparkConte
 # Configuration & Initialization
 ##############################################################################
 import pyspark
-from pyspark import SparkContext
-from pyspark.sql import SparkSession
+from pyspark import SparkContext      # SparkContext is the main entry point for creating RDDs
+from pyspark.sql import SparkSession  # SparkSession provides a single point of entry to interact with Spark DataFrames
 from pyspark.sql import SQLContext
 
 # create a SparkSession instance with the name moviedb with Hive support enabled
